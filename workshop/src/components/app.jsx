@@ -21,8 +21,12 @@ export default class App extends Component {
     };
   }
 
+  changeSelectedGif = (newGifId) => {
+    this.setState({ selectedGifId: newGifId });
+  }
+
   render() {
-    const {selectedGifId, gifIds } = this.state;
+    const { selectedGifId, gifIds } = this.state;
     return (
       <div>
         <div className="left-scene">
@@ -32,7 +36,7 @@ export default class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifIds={gifIds} />
+          <GifList gifIds={gifIds} changeGif={this.changeSelectedGif} />
         </div>
       </div>
     );
